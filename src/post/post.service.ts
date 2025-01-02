@@ -18,4 +18,12 @@ export class PostService {
     });
     return await this.postRespository.save(post);
   }
+
+  async findPost() {
+    return await this.postRespository.find();
+  }
+
+  async findPostWithUser() {
+    return await this.postRespository.find({ relations: ['user'] });
+  }
 }

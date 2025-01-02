@@ -60,6 +60,7 @@ export class UserService {
     return await this.userRepository.findOne({
       where: { id: id },
       relations: ['posts'],
+      select: ['id', 'name'],
     });
   }
 }
