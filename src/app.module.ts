@@ -19,7 +19,7 @@ import { PostModule } from './post/post.module';
       password: 'P@ssw0rd',
       database: 'node_typeorm_db',
       autoLoadEntities: true,
-      entities: [User, Post],
+      // entities: [User, Post],
       synchronize: true, // Set this to true only for development purposes
       logging: false, // Enable logging to see connection logs
     }),

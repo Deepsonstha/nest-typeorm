@@ -7,6 +7,7 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { GlobalExceptionFilter } from './error_handler/global_error_handler';
+import { globaleMiddlware } from './middleware/global_middleware';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -25,6 +26,7 @@ async function bootstrap() {
         ),
     }),
   );
+  app.use(globaleMiddlware);
 
   await app.listen(3000);
 }

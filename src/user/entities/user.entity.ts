@@ -8,7 +8,11 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-@Entity({})
+@Entity({
+  orderBy: {
+    name: 'ASC',
+  },
+})
 export class User {
   @PrimaryGeneratedColumn({
     type: 'bigint',
@@ -36,5 +40,5 @@ export class User {
   createdAt: Date;
 
   @OneToMany(() => Post, (posts) => posts.user)
-  posts: Post;
+  posts: Post[];
 }
