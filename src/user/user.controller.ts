@@ -41,6 +41,11 @@ export class UserController {
     }
   }
 
+  @Post('email')
+  async findUserByEmail(@Body('email') email: string) {
+    return await this.userService.findUserByEmail(email);
+  }
+
   @Patch(':id')
   async updateById(
     @Body() updateUserDto: UpdateUserDto,
@@ -54,12 +59,12 @@ export class UserController {
   }
 
   @Delete(':id')
-  async deleteById(@Param('id') id: number) {
+  async deleteById(@Param('id', ParseIntPipe) id: number) {
     return await this.userService.deleteUserById(id);
   }
 
   @Get(':id')
-  async getUserById(@Param('id') id: number) {
+  async getUserById(@Param('id', ParseIntPipe) id: number) {
     const user = await this.userService.findUserById(id);
     return {
       message: 'User successfully Found',

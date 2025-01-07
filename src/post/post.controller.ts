@@ -26,7 +26,7 @@ export class PostController {
     return await this.postService.findPost();
   }
 
-  @Get("postuser")
+  @Get('postuser')
   async findAllPostWithUser() {
     return await this.postService.findPostWithUser();
   }

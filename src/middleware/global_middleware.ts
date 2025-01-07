@@ -5,6 +5,6 @@ export function globaleMiddlware(
   res: Response,
   next: NextFunction,
 ) {
-  console.log('Global Middleware');
+  console.log('Global Middleware' );
   next();
 }

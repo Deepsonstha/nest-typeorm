@@ -8,6 +8,7 @@ import { join } from 'path';
 import { Post } from './post/entities/post_entities';
 import { PostService } from './post/post.service';
 import { PostModule } from './post/post.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { PostModule } from './post/post.module';
       synchronize: true, // Set this to true only for development purposes
       logging: false, // Enable logging to see connection logs
     }),
+    AuthModule,
     UserModule,
     PostModule,
   ],
