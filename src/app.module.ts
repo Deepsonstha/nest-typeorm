@@ -24,8 +24,8 @@ import { AuthModule } from './auth/auth.module';
       synchronize: true, // Set this to true only for development purposes
       logging: false, // Enable logging to see connection logs
     }),
-    AuthModule,
     UserModule,
+    AuthModule,
     PostModule,
   ],
   controllers: [AppController],

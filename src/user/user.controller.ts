@@ -14,6 +14,8 @@ import {
 import { UserService } from './users.service';
 import { CreateUserDto } from './dto/create_user.dto';
 import { UpdateUserDto } from './dto/update_user_dto';
+import { plainToInstance } from 'class-transformer';
+import { User } from './entities/user.entity';
 
 @Controller('user')
 export class UserController {
@@ -21,14 +23,8 @@ export class UserController {
 
   @Get()
   async findAll() {
-    try {
-      return await this.userService.findAllUser();
-    } catch (error) {
-      throw new HttpException(
-        'Error retrieving users',
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
-    }
+    const alluser = await this.userService.findAllUser();
+    return plainToInstance(User, alluser);
   }
 
   @Post()

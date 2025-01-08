@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { Post } from 'src/post/entities/post_entities';
 import {
   Column,
@@ -25,9 +26,8 @@ export class User {
   @Column({})
   email: string;
 
-  @Column({
-    select: false,
-  })
+  @Column()
+  @Exclude()
   password: string;
 
   @Column()
